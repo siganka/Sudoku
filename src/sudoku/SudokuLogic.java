@@ -16,10 +16,10 @@ public class SudokuLogic
 	{
 		showWarnings = false;
 		boolean regenerateBoard = true;
-		int c1 = 0;
-		while (regenerateBoard && c1 < 1000)
+		int boardRetryCounter = 0;
+		while (regenerateBoard && boardRetryCounter < 1000)
 		{
-			c1++;
+			boardRetryCounter++;
 			regenerateBoard = false;
 			for (int size = 1; size <= mySudokuBoard.getSize(); size++)
 			{
@@ -28,13 +28,13 @@ public class SudokuLogic
 				for (int col = 1; col <= mySudokuBoard.getSize(); col++)
 				{
 					int randomValue = randomGen.nextInt(mySudokuBoard.getSize()) + 1;
-					int counter = 0;
+					int cellRetryCounter = 0;
 
 					// Try board size * 100000 when restart
-					while (!isValid(size, col, randomValue) && counter < mySudokuBoard.getSize() * 100000)
+					while (!isValid(size, col, randomValue) && cellRetryCounter < mySudokuBoard.getSize() * 100000)
 					{
 						randomValue = randomGen.nextInt(mySudokuBoard.getSize()) + 1;
-						counter++;
+						cellRetryCounter++;
 					}
 					if (isValid(size, col, randomValue))
 					{
