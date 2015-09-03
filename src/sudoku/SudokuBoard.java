@@ -85,19 +85,17 @@ public class SudokuBoard
             {
                 printVerticalBorder++;
                 sb.append(" " + value + " ");
-                if (printVerticalBorder % myBoardSize == myBoardRegionSize)
+                if (printVerticalBorder % myBoardRegionSize == 0)
                 {
                     sb.append("!");
                 }
             }
-            sb.append("!" + System.lineSeparator());
-            if (printHorizontalBorder % myBoardSize == myBoardRegionSize)
+            sb.append(System.lineSeparator());
+            if (printHorizontalBorder % myBoardRegionSize == 0)
             {
                 printHorizontalBorder(sb);
             }
         }
-        printHorizontalBorder(sb);
-
         System.out.print(sb.toString());
     }
 
